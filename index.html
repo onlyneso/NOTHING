@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAJI.exe</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#070b14;
+    color:#f5f7ff;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(120,119,198,.15), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(99,102,241,.12), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(168,85,247,.10), transparent 40%);
+    pointer-events:none;
+}
+
+.section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:40px;
+}
+
+.terminal{
+    font-size:clamp(20px,3vw,36px);
+    letter-spacing:3px;
+    color:#9ea7ff;
+}
+
+.cursor{
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0;}
+}
+
+.big-name{
+    font-size:clamp(70px,14vw,180px);
+    font-weight:700;
+    letter-spacing:10px;
+    margin-top:25px;
+}
+
+.sub{
+    color:#95a0c6;
+    margin-top:15px;
+    letter-spacing:4px;
+}
+
+.card{
+    width:min(900px,90%);
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border-radius:24px;
+    padding:40px;
+}
+
+.profile-grid{
+    display:grid;
+    gap:18px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding-bottom:12px;
+}
+
+.label{
+    color:#9da8c9;
+}
+
+.value{
+    font-weight:600;
+}
+
+.title{
+    font-size:clamp(28px,4vw,48px);
+    margin-bottom:30px;
+}
+
+.stat{
+    margin-bottom:25px;
+}
+
+.stat-head{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+
+.bar{
+    height:12px;
+    background:#101827;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,#6366f1,#a855f7);
+}
+
+.achievements{
+    display:grid;
+    gap:15px;
+}
+
+.badge{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:18px;
+}
+
+.message{
+    line-height:2;
+    font-size:1.15rem;
+    color:#e5e7ef;
+}
+
+.final{
+    text-align:center;
+}
+
+.year{
+    color:#7f8cb6;
+    letter-spacing:10px;
+    margin-bottom:20px;
+}
+
+.final-name{
+    font-size:clamp(80px,15vw,220px);
+    font-weight:700;
+    letter-spacing:12px;
+    background:linear-gradient(90deg,#ffffff,#a5b4fc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.unlock{
+    font-size:clamp(24px,3vw,40px);
+    margin-bottom:25px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
+</head>
+<body>
+
+<audio id="bgmusic" src="song.mp3" preload="auto"></audio>
+
+<section class="section">
+    <div class="terminal" id="boot"></div>
+    <div class="big-name reveal">NAJI</div>
+    <div class="sub reveal">FROM NESO</div>
+</section>
+
+<section class="section">
+    <div class="card reveal">
+        <h2 class="title">Profile Found</h2>
+
+        <div class="profile-grid">
+
+            <div class="row">
+                <span class="label">NAME</span>
+                <span class="value">NAJI</span>
+            </div>
+
+            <div class="row">
+                <span class="label">CLASS</span>
+                <span class="value">Main Character</span>
+            </div>
+
+            <div class="row">
+                <span class="label">LEVEL</span>
+                <span class="value">2026</span>
+            </div>
+
+            <div class="row">
+                <span class="label">STATUS</span>
+                <span class="value">Unstoppable</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="card reveal"><h2 class="title">Character Stats</h2>
+
+        <div class="stat">
+            <div class="stat-head">
+                <span>Loyalty</span>
+                <span>100%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:100%"></div></div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-head">
+                <span>Humor</span>
+                <span>95%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:95%"></div></div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-head">
+                <span>Survival Skill</span>
+                <span>100%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:100%"></div></div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-head">
+                <span>Legend Status</span>
+                <span>100%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:100%"></div></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="card reveal">
+        <h2 class="title">Achievement Unlocked</h2>
+
+        <div class="achievements">
+            <div class="badge">Survived another year</div>
+            <div class="badge">Stayed real</div>
+            <div class="badge">Always had his friends backs</div>
+            <div class="badge">Kept being an absolute boss</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="card reveal">
+        <h2 class="title">Inside jokes</h2>
+
+        <div class="achievements">
+            <div class="badge">Zoot Labubu</div>
+            <div class="badge">Tadri Al-Hub. Tadriii Al-Hub.</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="card reveal">
+
+        <h2 class="title">Message From The Developer</h2>
+
+        <div class="message">
+
+            Happy Birthday to the main character Najiiii!!<br><br>
+
+            Another year of being an absolute boss<br><br>
+
+            Thanks for always having my back and being the realest friend out there<br><br>
+
+            Hope your day is as epic as you are bro<br><br>
+
+            Wishing you nothing but success, good health, and massive wins this year<br><br>
+
+            Enjoy your day to the fullest sweetie
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section final">
+
+    <div class="year">2026</div>
+
+    <div class="unlock">NEW LEVEL UNLOCKED</div>
+
+    <div class="final-name">NAJI</div>
+
+</section>
+
+<script>
+
+let i = 0;
+const text = "SEARCHING FOR: NAJI";
+
+function boot(){
+    if(i < text.length){
+        document.getElementById("boot").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(boot,80);
+    } else {
+        document.getElementById("boot").innerHTML += '<span class="cursor">|</span>';
+    }
+}
+boot();
+
+// reveal animation
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("active");
+        }
+    });
+},{threshold:0.2});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+    observer.observe(el);
+});
+
+// music
+let musicStarted = false;
+
+function startMusic(){
+    if(!musicStarted){
+        const audio = document.getElementById("bgmusic");
+        audio.volume = 0.4;
+        audio.play();
+        musicStarted = true;
+    }
+}
+
+document.body.addEventListener("click", startMusic, { once:true });
+
+</script>
+
+</body>
+</html>
